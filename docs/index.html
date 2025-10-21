@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExeMe</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #000000 30%, #291d33 60%, #1a042b 100%);
+      color: #00ff88;
+      font-family: "Courier New", monospace;
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 1;
+      border-bottom: 2px solid transparent;
+      overflow: hidden;
+      height: 90px;
+      top: 0%;
+      margin-left: 0%;
+      margin-right: 0%;
+      width: 100% ;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, #00ffff, transparent);
+      background-size: 200% 100%;
+      animation: flowline 8s linear infinite;
+    }
+    @keyframes flowline {
+      0% {
+        transform: translateX(-100%) translateY(0);
+      }
+      49.9% {
+        transform: translateX(0%) translateY(0); 
+      }
+      50% {
+        transform: translateX(0%) translateY(0); 
+      }
+      100% {
+        transform: translateX(130%) translateY(-130px); 
+      }
+    }
+
+    .title {
+      margin-right: 40px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .menu {
+      display: flex;
+      width: 100%;
+      align-items: center;
+    }
+
+    .menu a {
+      margin-right: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column; 
+      justify-content: flex-start;  
+      align-items: flex-start;  
+      margin-top: 200px;
+      width: 100%;
+      position: relative;
+    }
+
+    main {
+      padding: 40px;
+      white-space: pre-wrap;
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .intro-text {
+      margin-bottom: 10px;
+      font-size: 10em;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: left;
+      white-space: nowrap;
+      margin-left: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    #output {
+      margin-left: 120px;
+      font-size: 3em;
+      white-space: nowrap;;
+    }
+
+    #output::after {
+      content: "_";
+      animation: blink 0.7s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+    
+    
+
+    @media (max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px; 
+        text-align: center;
+        margin-top: 120px;
+      }
+      
+      .intro-text {
+        font-size: 6em;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      
+      #output {
+        margin-left: 0;
+        font-size: 1.5em;
+        width: 100%;
+        text-align: center;
+      }
+     
+          }
+
+    @media (max-width: 700px) {
+      .main-content {
+        margin-top: 100px;
+        overflow-x: visible; 
+      }
+      
+      .intro-text {
+        font-size: 5em;
+        width: 100%;
+        text-align: center;
+      }
+      
+      #output {
+        font-size: 2em;
+        margin-bottom: 30px;
+        width: 100%;
+        text-align: center;
+      }
+  
+      
+    }
+
+    @media (max-width: 500px) {
+      .main-content {
+        margin-top: 80px;
+        padding: 0 10px; 
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+      .intro-text {
+        font-size: 3.5em; 
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+      }
+      
+      #output {
+        font-size: 1.5em;
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+      }
+          }
+    
+    @media (max-width: 350px) {
+      .intro-text {
+        font-size: 2.5em; 
+      }
+      
+      #output {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title"></div>
+    <nav class="menu">
+      <a href="index.html">ホーム</a>
+      <a href="eda.html">公告</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="intro-text">ExeMe</div>
+    <div id="output"></div>
+  </main>
+
+  <script>
+    const text = "E x c i t e\u00A0\u00A0m e\u00A0\u00A0E x e M e.";
+    const output = document.getElementById("output");
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        output.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 100);
+      }
+    }
+
+    type();
+
+    const button = document.querySelector('.neo-button');
+    const cursorEffect = document.querySelector('.cursor-effect');
+
+    button.addEventListener('click', () => {
+      button.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        button.style.transform = 'translateY(-2px)';
+      }, 150);
+    });
+    
+    function updateBubbleContent(bubbleClass, newContent) {
+      const bubble = document.querySelector('.' + bubbleClass + ' .cyber-text');
+      if (bubble) {
+        bubble.textContent = newContent;
+      }
+    }
+  </script>
+
+</body>
+</html>

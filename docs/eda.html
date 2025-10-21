@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公告</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #000000 40%, #1a1c4d 70%, #151985 100%);
+      color: #ffffff;
+      font-family: "Courier New", monospace;
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 1;
+      border-bottom: 2px solid transparent;
+      overflow: hidden;
+      height: 90px;
+      top: 0%;
+      margin-left: 0%;
+      margin-right: 0%;
+      width: 100% ;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, #00ffff, transparent);
+      background-size: 200% 100%;
+      animation: flowline 8s linear infinite;
+    }
+    @keyframes flowline {
+      0% {
+        transform: translateX(-100%) translateY(0);
+      }
+      49.9% {
+        transform: translateX(0%) translateY(0); 
+      }
+      50% {
+        transform: translateX(0%) translateY(0); 
+      }
+      100% {
+        transform: translateX(130%) translateY(-130px); 
+      }
+    }
+
+    .title {
+      margin-right: 40px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .menu {
+      display: flex;
+      width: 100%;
+      align-items: center;
+    }
+
+    .menu a {
+      margin-right: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 60px;
+      text-align: left;
+      font-size: 1.4em;
+      line-height: 1.8;
+    }
+
+    h1 {
+      margin: 0;
+      letter-size: 18px;
+      margin-bottom: 50px;
+      font-size: clamp(13px, 1.8vw, 18px); 
+      padding-left : 7%;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(13px, 1.8vw, 18px); 
+      color: #00e8ff;
+      padding-left : 7%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title"></div>
+    <nav class="menu">
+      <a href="index.html">ホーム</a>
+      <a href="eda.html">公告</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>現在、当社に係る公告事項はございません。</h1>
+    <h2>ExeMe株式会社</h2>
+  </main>
+
+</body>
+</html>
