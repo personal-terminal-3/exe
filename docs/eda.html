@@ -98,6 +98,28 @@
       color: #00e8ff;
       padding-left : 7%;
     }
+    .bs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px 10px;
+    }
+    .num {
+      text-align: right;
+    }
+    table th:last-child,
+    table td:last-child {
+      text-align: right;
+      padding-right: 12px;
+    }
   </style>
 </head>
 <body>
@@ -111,9 +133,41 @@
   </header>
 
   <main>
-    <h1>現在、当社に係る公告事項はございません。</h1>
-    <h2>ExeMe株式会社</h2>
+    <h1>貸借対照表（2025事業年度）は下記の通りとなっております。</h1>
+    <p>
+    ExeMe株式会社<br>
+    記載日：2026年1月5日
+    </p>
+    <div class = "bs-grid">
+      <section>
+        <h2>資産の部</h2>
+        <table>
+          <tr><th>科目</th><th>金額（円）</th></tr>
+          <tr><td>現金及び預金</td><td class = "num">9000000</td></tr>
+          <tr><td>前払費用</td><td class = "num">616000</td></tr>
+          <tr><td>前払保険料</td><td class = "num">18334</td></tr>
+          <tr><td>建物付属設備</td><td class = "num">41470</td></tr>
+          <tr><td>創立費</td><td class = "num">241750</td></tr>
+          <tr><td>資産合計</td><td class = "num">9917554</td></tr>
+        </table>
+      </section>
+      <section>
+        <h2>負債の部</h2>
+        <table>
+          <tr><th>科目</th><th>金額（円）</th></tr>
+          <tr><td>代表者借入金</td><td class = "num">1469401</td></tr>
+        </table>
+        <h2>純資産の部</h2>
+        <table>
+          <tr><th>科目</th><th>金額（円）</th></tr>
+          <tr><td>資本金</td><td class = "num">9000000</td></tr>
+          <tr><td>当期純損失</td><td class = "num">2386955</td></tr>
+          <tr><td>負債及び純資産合計</td><td class = "num">9917554</td></tr>
+        </table>
+      </section>
+    </div>
   </main>
 
 </body>
 </html>
+
